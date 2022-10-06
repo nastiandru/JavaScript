@@ -4,9 +4,12 @@ const przeliczBtn = document.querySelector('#przelicz')
 const WynikiPojemnik = document.querySelector('#wyniki')
 
 console.dir(liczba1)
-przeliczBtn.addEventListener('click', () => {
-    console.log(+liczba1.value)
+przeliczBtn.addEventListener('click', przelicz)
+//Math.min(), .max()
+
+function przelicz()
+{
+    console.log(Math.min(+liczba1.value, +"4"))
     //parseInt(liczba1.valule)
     WynikiPojemnik.innerHTML = 'Wynik: ${liczba1.value}'
-})
-//Math.min(), .max()
+}
