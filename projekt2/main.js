@@ -2,16 +2,16 @@
 const main = document.querySelector('main')
 const timeoutRef = setTimeout( 
     () => {
-        main.innerHTML='From setTimeout'
+        main.innerHTML=''
     },
-    2000
+    500
 )
 let licznik = 0 
 const intervalRef = setInterval( 
     () => {
         main.innerHTML='From interval' + licznik++
     },
-    4000
+    2000
 )
 
 // kasujemy setInterval
