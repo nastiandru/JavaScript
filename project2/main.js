@@ -1,24 +1,46 @@
-// notatnik z zajęć
-const main = document.querySelector('main')
-const timeoutRef = setTimeout( 
-    () => {
-        main.innerHTML=''
-    },
-    500
-)
-let licznik = 0 
-const intervalRef = setInterval( 
-    () => {
-        main.innerHTML='From interval' + licznik++
-    },
-    2000
-)
+var currentIndex =1;
+displaySlides(currentIndex);
 
-// kasujemy setInterval
-clearInterval(intervalRef)
+function setSlides(num) {
+    displaySlides(currentIndex += num);
+}
 
-// kasujemy setTimeout
-clearTimeout(intervalRef)
+function displaySlides(num) {
+    var x;
+    var slides = document.getElementsByClassName
+    if(num > slides.length){
+        currentIndex = 1
+    }
+    if(num < 1) {
+        currentIndex = slides.length 
+    }
+    for (x = 0; x< slides.length; x++) {
+        slides[x].slides.display = "none";
+    }
+    slides[currentIndex - 1].style.display ="block";
+}
+
+
+
+// const main = document.querySelector('main')
+// const timeoutRef = setTimeout( 
+//     () => {
+//         main.innerHTML=''
+//     },
+//     200
+// )
+// let licznik = 0 
+// const intervalRef = setInterval( 
+//     () => {
+//         main.innerHTML='From interval' + licznik++
+//     },
+//     2000
+// )
+
+
+// clearInterval(intervalRef)
+// clearTimeout(intervalRef)
+
 
 
 // window.requestAnimationFrame
