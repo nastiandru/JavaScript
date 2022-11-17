@@ -1,0 +1,19 @@
+.hole {
+    width: 80px;
+    height: 80px;
+    background-color: antiquewhite;
+    border-radius: 50%;
+    position: absolute;
+}
+
+#conten-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#board {
+    width: 1000px;
+    height: 500px;
+    background-color: darkblue;
+}
+
