@@ -3,17 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider</title>
     <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 
 <body>
     <section aria-label="Bridge in fire">
-        <div class="slider">
-            <button class="slider-button prev">&#8249;</button>
-            <button class="slider-button next">&#8250;</button>
-            <ul>
+        <div class="slider" data-slider>
+            <button class="slider-button prev" data-slider-button="prev">&#8249;</button>
+            <button class="slider-button next" data-slider-button="next">&#8250;</button>
+            <ul data-slides>
                 <li class="slide" data-active>
                     <img src="images/1.jpg" alt="Bridge image #1">
                 </li>
@@ -29,8 +31,6 @@
             </ul>
         </div>
     </section>
-    <script src="main.js"></script>
-
 </body>
 
 </html>
