@@ -1,46 +1,19 @@
-var currentIndex =1;
-displaySlides(currentIndex);
+const buttons = document.querySelectorAll("[data-slider-button]")
 
-function setSlides(num) {
-    displaySlides(currentIndex += num);
-}
+buttons.forEach(button => {
+    button.addEventListner("click", () => {
+        const offset = button.dataset.sliderButton === "next" ? 1 : -1
+        const slides = button
+          .closest("[data-slider]")
+          .querySelector("[data-slides]")
+        
+        const activeSlide = slides.querySelector("[data-active")
+        let newIndex = [...slides.children].indexOf(activeSlide) + offset 
+        if (newIndex < 0) newIndex = slides.children.length - 1
+        if (newIndex >= slides.children.length) newIndex = 0
 
-function displaySlides(num) {
-    var x;
-    var slides = document.getElementsByClassName
-    if(num > slides.length){
-        currentIndex = 1
-    }
-    if(num < 1) {
-        currentIndex = slides.length 
-    }
-    for (x = 0; x< slides.length; x++) {
-        slides[x].slides.display = "none";
-    }
-    slides[currentIndex - 1].style.display ="block";
-}
+        slides.children[newIndex].dataset.active = true
+        delete activeSlide.dataset.active
 
-
-
-// const main = document.querySelector('main')
-// const timeoutRef = setTimeout( 
-//     () => {
-//         main.innerHTML=''
-//     },
-//     200
-// )
-// let licznik = 0 
-// const intervalRef = setInterval( 
-//     () => {
-//         main.innerHTML='From interval' + licznik++
-//     },
-//     2000
-// )
-
-
-// clearInterval(intervalRef)
-// clearTimeout(intervalRef)
-
-
-
-// window.requestAnimationFrame
+    })
+})
