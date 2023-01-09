@@ -35,11 +35,10 @@ dodajPole = () =>{
 
     newField.addEventListener('change', () => {
         przelicz();
-
     })
 }
 
-addFieldBtn.addEventListener('click', dodalPole())
+addFieldBtn.addEventListener('click', dodajPole())
 
 przelicz = () => {
     const numArray = numbers.map((num) => Number(num.value));
