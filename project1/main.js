@@ -12,7 +12,7 @@ const WynikiPojemnik = document.querySelector('#wyniki')
 
 const dodacPole = document.querySelector('#dodać')
 const usunacPole = document.querySelector('#usunąć')
-let inputs
+
 
 
 przeliczBtn.addEventListener('click', przelicz)
@@ -27,14 +27,11 @@ function przelicz()
 }
 
 dodacPole.addEventListener('click', () => {
-    const input = document.querySelector('#input')
-    input.setAttribute('type', 'text');
-    inputs = document.querySelectorAll('input')
+    
 })
 
 usunacPole.addEventListener('click', () => {
-    const input = document.querySelector("input")
-    inputs = document.querySelectorAll('input')
+    
 
 })
 
