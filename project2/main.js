@@ -1,7 +1,7 @@
 {
   const sliders = document.querySelectorAll(".slider");
-  const prevBtn = document.querySelector(".slider-button prev");
-  const nextBtn = document.querySelector(".slider-button next");
+  const prevBtn = document.querySelector(".slider-button.prev")
+  const nextBtn = document.querySelector(".slider-button.next");
 
   const interval = 2800;
   const animDuration = 600;
@@ -32,7 +32,7 @@
       animateSlider();
       sliderImgs[0].style.left = "";
       intrvl = setInterval(animateSlider, interval);
-    }, interval - animDuration);   
+    }, interval - animDuration);
 
     /**
      * Animates images
@@ -49,7 +49,7 @@
       if (!right) {
         sliderImgs[nextImg].style.animationName = "leftNext";
         sliderImgs[currImg].style.animationName = "leftCurr";
-      } 
+      }
       else {
         sliderImgs[nextImg].style.animationName = "rightNext";
         sliderImgs[currImg].style.animationName = "rightCurr";
@@ -82,14 +82,26 @@
 
       intrvl = setInterval(animateSlider, interval);
     }
+
+    prevBtn.addEventListener("click", () => {
+      clearTimeout(timeout);
+      clearInterval(intrvl);
+
+      let nextImg = currImg;
+      if (nextImg == 0)
+        nextImg = sliderImgs.length;
+      animateSlider(nextImg, true);
+
+      intrvl = setInterval(animateSlider, interval);
+    }, false);
+
+    nextBtn.addEventListener("click", () => {
+      clearTimeout(timeout);
+      clearInterval(intrvl);
+
+      animateSlider();
+
+      intrvl = setInterval(animateSlider, interval);
+    }, false);
   }
-
-  nextBtn.addEventListener('click', ()=>{
-
-  })
-
-  prevBtn.addEventListener('click', () => {
-
-  })
-
 }
