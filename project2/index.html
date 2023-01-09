@@ -6,29 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="main.js" defer></script>
 </head>
+
+<header>
+    <h1> Slider </h1>
+  </header>
 
 <body>
     <section aria-label="Bridge in fire">
         <div class="slider" data-slider>
             <button class="slider-button prev" data-slider-button="prev">&#8249;</button>
             <button class="slider-button next" data-slider-button="next">&#8250;</button>
-            <ul data-slides>
-                <li class="slide" data-active>
+            <div data-slides>
+                <div class="slide" data-active>
                     <img src="images/1.jpg" alt="Bridge image #1">
-                </li>
-                <li class="slide">
+                </div>
+                <div class="slide">
                     <img src="images/2.jpg" alt="Bridge image #2">
-                </li>
-                <li class="slide">
+                </div>
+                <div class="slide">
                     <img src="images/3.jpg" alt="Bridge image #3">
-                </li>
-                <li class="slide">
+                </div>
+                <div class="slide">
                     <img src="images/4.jpg" alt="Bridge image #4">
-                </li>
-            </ul>
+                </div>
+            </div>
+            <div class="navigation-dots">
+                <div class="single-dot"></div>
+                <div class="single-dot"></div>
+                <div class="single-dot"></div>
+              </div>
         </div>
     </section>
 </body>
