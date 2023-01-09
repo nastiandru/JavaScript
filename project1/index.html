@@ -13,23 +13,15 @@
 </header>
 
 <body>
-    <div class="input">
 
-        <input type="text" id="liczba1">
-        <input type="text" id="liczba2">
-        <input type="text" id="liczba3">
-
-        <button id="przelicz">Przelicz</button>
+    <div id="numberContainer" style="display: flex; flex-direction: column; width: 150px;">
+        <input type="number" id="nextinputNumber" className="numberInput" placeholder = 'Number ${nextinputNumber}'>
     </div>
-    <div class="output">
-        <div id="sum">Suma:</div>
-        <div id="srednia">Średnia:</div>
-        <div id="min">Min:</div>
-        <div id="max">Max:</div>
-    </div>
-
-    <button id="dodać">Dodać nowe pole</button>
-    <button id="usunąc">Usunąć nowe pole</button>
+    <button id="addField">Dodać nowe pole</button>
+    <p> Sum: <span id="sum"></span></p>
+    <p> Śriednia: <span id=srednia></span></p>
+    <p> Min: <span id="min"></span></p>
+    <p> Max: <span id="max"></span></p>
 
     <script src="main.js" type="text/javascript"></script>
     <script type="text/javascript">
