@@ -8,19 +8,19 @@ const srednia = document.querySelector("#srednia")
 let numbers =[];
 let nextinputNumber = 0;
 
-addFieldBtn.addEventListener('click', () =>{
+dodajPole = () =>{
     const newField = document.createElement('input');
     newField.type = 'number';
     newField.className = 'numberInput';
     newField.id = nextinputNumber;
-    newField.placeholder = 'Number ${nextinputNumber}';
+    newField.placeholder = `Number ${nextinputNumber}`;
     document.querySelector('#numberContainer').appendChild(newField)
     numbers.push(newField);
     nextinputNumber++;
 
     const newFieldDeleteBtn = document.createElement('button');
     newFieldDeleteBtn.className = 'deleteBtn';
-    newFieldDeleteBtn.id = 'deleteBtn${nextinputNumber}';
+    newFieldDeleteBtn.id = `deleteBtn${nextinputNumber}`;
     newFieldDeleteBtn.innerHTML = 'Delete';
     document.querySelector('#numberContainer').appendChild(newFieldDeleteBtn);
 
@@ -30,14 +30,16 @@ addFieldBtn.addEventListener('click', () =>{
         newField.remove();
         let index = numbers.indexOf(newField.value)
         numbers.splice(index,1);
-        przelicz
+        przelicz();
     })
 
     newField.addEventListener('change', () => {
         przelicz();
 
     })
-})
+}
+
+addFieldBtn.addEventListener('click', dodalPole())
 
 przelicz = () => {
     const numArray = numbers.map((num) => Number(num.value));
@@ -57,6 +59,10 @@ zero = () => {
     srednia.innerHTML = 0;
     min.innerHTML = 0;
     max.innerHTML = 0;
+}
+
+for(let i =0; i<2; i++){
+    dodajPole();
 }
 
 
