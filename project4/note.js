@@ -1,26 +1,11 @@
 class Note {
-    
-    construktor(title, content, pin, color = 'blue'){
-        if(isValidColor(color)) {
-            throw new Error('invalid color')
-        }
-        this.title = title;
-        this.content = content;
+    constructor(id, title, content, color = '#f7e1a8', isPinned = false, ) {
+      this.id = id;
+      this.title = title;
+      this.content = content;
+      this.color = color;
+      this.isPinned = isPinned;
+      this.date = new Date().toDateString();
+      this.tags = this.tags;
     }
-    DataUtworzenia(){
-        return this.
-    }
-}
-const a = Data.now()
-a.toISOString()
-a.dateOBject.toLocaleString()
-
-const ColorNote = {
-    'black': 'rgb(0,0,0)'
-}
-
-const isValidColor =(color) =>{
-    return Object.keys(ColorNote).includes(color)
-}
-
-window.localStorage.setItem('note', JSON.stringify(Note));
+  }
