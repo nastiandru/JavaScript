@@ -1,38 +1,62 @@
-const liczba1 = document.querySelector('#liczba1')
-const liczba2 = document.querySelector('#liczba2')
-const liczba3 = document.querySelector('#liczba3')
 
-const przeliczBtn = document.querySelector('#przelicz')
+const addFieldBtn = document.querySelector('#addField')
 const sum = document.querySelector('#sum')
 const min = document.querySelector('#min')
 const max = document.querySelector('#max')
 const srednia = document.querySelector("#srednia")
 
-const WynikiPojemnik = document.querySelector('#wyniki')
+let numbers =[];
+let nextinputNumber = 0;
 
-const dodacPole = document.querySelector('#dodać')
-const usunacPole = document.querySelector('#usunąć')
+addFieldBtn.addEventListener('click', () =>{
+    const newField = document.createElement('input');
+    newField.type = 'number';
+    newField.className = 'numberInput';
+    newField.id = nextinputNumber;
+    newField.placeholder = 'Number ${nextinputNumber}';
+    document.querySelector('#numberContainer').appendChild(newField)
+    numbers.push(newField);
+    nextinputNumber++;
 
+    const newFieldDeleteBtn = document.createElement('button');
+    newFieldDeleteBtn.className = 'deleteBtn';
+    newFieldDeleteBtn.id = 'deleteBtn${nextinputNumber}';
+    newFieldDeleteBtn.innerHTML = 'Delete';
+    document.querySelector('#numberContainer').appendChild(newFieldDeleteBtn);
 
+    
+    newFieldDeleteBtn.addEventListener('click',() =>{
+        newFieldDeleteBtn.remove();
+        newField.remove();
+        let index = numbers.indexOf(newField.value)
+        numbers.splice(index,1);
+        przelicz
+    })
 
-przeliczBtn.addEventListener('click', przelicz)
-//Math.min(), .max()
+    newField.addEventListener('change', () => {
+        przelicz();
 
-function przelicz()
-{
-    sum.innerHTML = 'Suma: '+ (parseInt(liczba1.value) + parseInt(liczba2.value) + parseInt(liczba3.value))
-    srednia.innerHTML = 'Srednia: ' + (parseInt(liczba1.value) + parseInt(liczba2.value) + parseInt(liczba3.value))/3
-    min.innerHTML = 'Min: ' + Math.min(parseInt(liczba1.value), parseInt(liczba2.value), parseInt(liczba3.value))
-    max.innerHTML = 'Max: ' + Math.max(parseInt(liczba1.value), parseInt(liczba2.value), parseInt(liczba3.value))
+    })
+})
+
+przelicz = () => {
+    const numArray = numbers.map((num) => Number(num.value));
+    if(numArray.length >0) {
+
+        sum.innerHTML = numArray.reduce((a,b) => a+b, 0)
+        srednia.innerHTML = numArray.reduce((a,b) => a+b, 0) /numArray.length; 
+        min.innerHTML = Math.min(...numArray);
+        max.innerHTML = Math.max(...numArray);
+    }
+    else
+       zero();
+};
+
+zero = () => {
+    sum.innerHTML = 0;
+    srednia.innerHTML = 0;
+    min.innerHTML = 0;
+    max.innerHTML = 0;
 }
-
-dodacPole.addEventListener('click', () => {
-    
-})
-
-usunacPole.addEventListener('click', () => {
-    
-
-})
 
 
