@@ -6,6 +6,9 @@ titleEl = document.querySelector('input'),
 descEl = document.querySelector('textarea'),
 addBtn = document.querySelector('button ');
 
+const color = document.getElementById("color");
+const isPinned = document.getElementById("pinned");
+
 const notes = JSON.parse(localStorage.getItem('notes') || '[]');
 let isUpdate = false, updateId;
 
