@@ -5,11 +5,14 @@ const ctx = canvas.getContext('2d');
 
 const numOfCircles = document.getElementById('numOfCircles');
 
-numOfCircles.setAttribute('min', 50)
-numOfCircles.setAttribute('max', 800)
+const canvasHeightInput = document.getElementById('canvasHeight');
+const canvasWidthInput = document.getElementById('canvasWidth');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+numOfCircles.setAttribute('min', 30)
+numOfCircles.setAttribute('max', 500)
+
+// canvas.width = window.innerWidth;
+// canvas.height = window.innerHeight;
 
 window.addEventListener('resize', () =>{
     canvas.width = window.innerWidth;
@@ -70,6 +73,26 @@ class Particle{
 
 }
 
+function drawLines(){
+    for (let a = 0; a < particleArray.length; a++) {
+        for (let b = a; b < particleArray.length; b++) {
+          let distance =
+            ((particleArray[a].x - particleArray[b].x) *
+              (particleArray[a].x - particleArray[b].x)) +
+            ((particleArray[a].y - particleArray[b].y) *
+              (particleArray[a].y - particleArray[b].y));
+          if (distance < ((canvas.width / 7) * canvas.height) / 7) {
+            ctx.strokeStyle = "#FFFFFF";
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(particleArray[a].x, particleArray[a].y);
+            ctx.lineTo(particleArray[b].x, particleArray[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+}
+
 function handle(){
     for(let i =0; i < particleArray.length; i++){
         particleArray[i].draw()
@@ -77,20 +100,41 @@ function handle(){
     }
 }
 
+const init = () => {
+
+    for(let i =0; i < numOfCircles; i++){
+        particleArray.push(
+            new Particle(x, y, size, speedX, speedY)
+        );
+    }
+}
+
 function animate(){
     ctx.clearRect(0,0, canvas.width, canvas.height)
     handle();
     requestAnimationFrame(animate);
+    drawLines();
 }
 
-animate();
+
 
 startBtn.addEventListener('click', () =>{
-    
+    canvasHeightInput.setAttribute('max', window.innerHeight)
+    canvasHeightInput.setAttribute('min', (window.innerHeight) / 5)
+    canvasWidthInput.setAttribute('max', window.innerWidth)
+    canvasWidthInput.setAttribute('min', (window.innerWidth) / 5)
+    canvas.height= canvasHeightInput.value || window.innerHeight;
+    canvas.width= canvasWidthInput.value || window.innerWidth;
+    init();
+    animate();
+    startBtn.disabled = true
     
   })
 
   resetBtn.addEventListener('click', () =>{
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    canvas.width = ''
+    canvas.height = ''
+    startBtn.disabled = false
 
-  
   })
