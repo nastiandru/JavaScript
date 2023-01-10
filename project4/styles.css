@@ -110,11 +110,6 @@ body{
   overflow-y: auto;
 }
 
-.note .details::-webkit-scrollbar,
-.popup textarea::-webkit-scrollbar{
-  width: 0;
-}
-
 .note p{
   font-size: 22px;
   font-weight: 500;
