@@ -6,33 +6,19 @@
     <title>Moving Ball</title>
     <link rel="stylesheet" href="canvas.css">
 </head>
-<body> 
-    <div class="controls">
-        <label for="numOfCircles">Number of circles</label>
-        <input
-          type="number"
-          name="numOfCircles"
-          id="numOfCircles"
-          placeholder="100"
-        />
-        <label for="canvasWidth">Canvas width</label>
-        <input
-          type="number"
-          name="canvasWidth"
-          id="canvasWidth"
-          placeholder="Window width by default"
-        />
-        <label for="canvasHeight">Canvas height</label>
-        <input
-          type="number"
-          placeholder="Window height by default"
-          name="canvasHeight"
-          id="canvasHeight"
-        />
-        <button id="start">Start</button>
-        <button id="reset">Reset</button>
-      </div>
-    <canvas id="canvas" ></canvas>
-    <script src="main.js" defer></script>
+<body>
+  <div class="controls">
+    <label for="numOfCircles">Number of circles</label>
+    <input type="number" name="numOfCircles" id="numOfCircles" placeholder="# of Circles" min="30" max="500" value="50"/> 
+    <label for="canvasWidth">Canvas width</label>
+    <input type="number" name="canvasWidth" id="canvasWidth" placeholder="Window width by default" />
+    <label for="canvasHeight">Canvas height</label>
+    <input type="number" placeholder="Window height by default" name="canvasHeight" id="canvasHeight" />
+    <button id="start">Start</button>
+    <button id="reset">Reset</button>
+  </div>
+  <canvas id="canvas"></canvas>
+  <script src="main.js" defer></script>
 </body>
+
 </html>
