@@ -50,8 +50,8 @@ function updateNote(noteId, title, desc) {
     addBox.click();
     titleEl.value = title;
     descEl.value = desc;
-    addBtn.innerText = 'Edit Note';
-    popupTitle.innerText = 'Editing a Note';
+    addBtn.innerText = 'Edytuj notatkę';
+    popupTitle.innerText = 'Edytować notatkę';
 }
 
 const months= ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -90,7 +90,7 @@ closeIcon.addEventListener('click', ()=>{
     isUpdate = false;
     titleEl.value = '';
     descEl.value = '';
-    addBtn.innerText = 'Add Note';
-    popupTitle.innerText = 'Add a new Note';
+    addBtn.innerText = 'Dodać notatkę';
+    popupTitle.innerText = 'Dodać nową notatkę';
     popupBox.classList.remove('show');
 });
