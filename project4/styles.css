@@ -54,9 +54,16 @@ body{
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
-.add-box{
+
+
+.add-box, .icon, .bottom-content, 
+.box, header, .settings .menu li{
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.add-box{
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
@@ -78,6 +85,17 @@ body{
   margin-top: 20px;
 }
 
+.note{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.note .details{
+  max-height: 165px;
+  overflow-y: auto;
+}
+
 .note p{
   font-size: 22px;
   font-weight: 500;
@@ -89,6 +107,25 @@ body{
   font-size: 16px;
   margin-top: 5px;
 }
+
+.note .bottom-content{
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+.bottom-content span{
+  color: #6D6D6D;
+  font-size: 14px;
+}
+.bottom-content .settings{
+  position: relative;
+}
+.bottom-content .settings i{
+  color: #6D6D6D;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+
 
 
 
