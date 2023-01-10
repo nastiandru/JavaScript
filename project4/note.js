@@ -1,10 +1,10 @@
-const addBox = document.querySelector('.add-box')
-container = document.querySelector('.container')
-popupTitle = container.querySelector('header p')
-closeIcon = document.querySelector('header i')
-titleEl = document.querySelector('input')
-descEl = document.querySelector('textarea')
-addBtn = document.querySelector('button')
+const addBox = document.querySelector('.add-box'),
+popupBox = document.querySelector('.popup-box'),
+popupTitle = popupBox.querySelector('header p'),
+closeIcon = document.querySelector('header i'),
+titleEl = document.querySelector('input'),
+descEl = document.querySelector('textarea'),
+addBtn = document.querySelector('button ');
 
 const notes = JSON.parse(localStorage.getItem('notes') || '[]');
 let isUpdate = false, updateId;
@@ -33,7 +33,7 @@ showNotes();
 
 addBox.addEventListener('click', ()=>{
     titleEl.focus();
-    container.classList.add('show')
+    popupBox.classList.add('show')
 });
 
 function deleteNote(noteId) {
@@ -56,15 +56,16 @@ function updateNote(noteId, title, desc) {
 
 const months= ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-addBtn.addEventListener("click", () =>{
+addBtn.addEventListener('click', (e)=>{
     e.preventDefault();
-    let noteTitle = titleEl.value
+    let noteTitle = titleEl.value,
     noteDesc = descEl.value;
     if (noteTitle || noteDesc) {
         let dateEl= new Date(),
         month = months[dateEl.getMonth()],
         day = dateEl.getDate(),
         year = dateEl.getFullYear();
+
 
         let noteInfo = {
             title: noteTitle,
@@ -83,7 +84,7 @@ addBtn.addEventListener("click", () =>{
         closeIcon.click();
         showNotes();
     }
-})
+});
 
 closeIcon.addEventListener('click', ()=>{
     isUpdate = false;
