@@ -8,8 +8,8 @@ const numOfCircles = document.getElementById('numOfCircles');
 const canvasHeightInput = document.getElementById('canvasHeight');
 const canvasWidthInput = document.getElementById('canvasWidth');
 
-numOfCircles.setAttribute('min', 30)
-numOfCircles.setAttribute('max', 500)
+// numOfCircles.setAttribute('min', 30)
+// numOfCircles.setAttribute('max', 500)
 
 // canvas.width = window.innerWidth;
 // canvas.height = window.innerHeight;
