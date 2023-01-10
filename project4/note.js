@@ -40,7 +40,7 @@ addBox.addEventListener('click', ()=>{
 });
 
 function deleteNote(noteId) {
-    let confirmDelete= confirm("Are you sure you want to delete this note?");
+    let confirmDelete= confirm("Jesteś pewna/pewien, że chcesz usunąć notatkę?");
     if(!confirmDelete) return;
     notes.splice(noteId, 1);
     localStorage.setItem('notes', JSON.stringify(notes));
