@@ -1,9 +1,10 @@
 const addBox = document.querySelector('.add-box')
 container = document.querySelector('.container')
-popupTitle = popupBox.querySelector('header p')
+popupTitle = container.querySelector('header p')
+closeIcon = document.querySelector('header i')
 titleEl = document.querySelector('input')
 descEl = document.querySelector('textarea')
-addBtn = document.querySelector('button ')
+addBtn = document.querySelector('button')
 
 const notes = JSON.parse(localStorage.getItem('notes') || '[]');
 let isUpdate = false, updateId;
@@ -33,4 +34,62 @@ showNotes();
 addBox.addEventListener('click', ()=>{
     titleEl.focus();
     container.classList.add('show')
+});
+
+function deleteNote(noteId) {
+    let confirmDelete= confirm("Are you sure you want to delete this note?");
+    if(!confirmDelete) return;
+    notes.splice(noteId, 1);
+    localStorage.setItem('notes', JSON.stringify(notes));
+    showNotes();
+}
+
+function updateNote(noteId, title, desc) {
+    isUpdate = true;
+    updateId = noteId;
+    addBox.click();
+    titleEl.value = title;
+    descEl.value = desc;
+    addBtn.innerText = 'Edit Note';
+    popupTitle.innerText = 'Editing a Note';
+}
+
+const months= ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+addBtn.addEventListener("click", () =>{
+    e.preventDefault();
+    let noteTitle = titleEl.value
+    noteDesc = descEl.value;
+    if (noteTitle || noteDesc) {
+        let dateEl= new Date(),
+        month = months[dateEl.getMonth()],
+        day = dateEl.getDate(),
+        year = dateEl.getFullYear();
+
+        let noteInfo = {
+            title: noteTitle,
+            description: noteDesc,
+            date: `${month} ${day} ${year}`
+        }
+        
+        if (!isUpdate) {
+            notes.push(noteInfo);
+        }else{
+            isUpdate = false;
+            notes[updateId] = noteInfo;
+        }
+        
+        localStorage.setItem('notes', JSON.stringify(notes));
+        closeIcon.click();
+        showNotes();
+    }
+})
+
+closeIcon.addEventListener('click', ()=>{
+    isUpdate = false;
+    titleEl.value = '';
+    descEl.value = '';
+    addBtn.innerText = 'Add Note';
+    popupTitle.innerText = 'Add a new Note';
+    popupBox.classList.remove('show');
 });
