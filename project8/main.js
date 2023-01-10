@@ -31,35 +31,38 @@ canvas.addEventListener('click', (e) =>{
     mouse.y = e.y;
 
     for(let i = 0; i < 2; i++){
-        particleArray.push(new Particle())
+        particleArray.push(new Particle(false))
     }
 })
 
-class Particle{
-    constructor(){
-        // 
-        this.x = mouse.x;
-        this.y = mouse.y;
-        this.size = Math.random()* 20 + 1;
-        this.speedX = Math.random()* 3 - 1.5;
-        this.speedY = Math.random()* 3 - 1.5;
+class Particle {
+
+    size = Math.random() * 20 + 1;
+    speedX = Math.random() * 3 - 1.5;
+    speedY = Math.random() * 3 - 1.5;
+
+    constructor(random) {
+        if (random) {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+        } else {
+            this.x = mouse.x;
+            this.y = mouse.y;
+        }
     }
 
-    update(){
-        this.x +=this.speedX;
-        this.y +=this.speedY;
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
 
-        if(this.x + this.speedX > canvas.width - this.size || this.x 
-            + this.speedX < this.size)
-        {
+        if (this.x + this.speedX > canvas.width - this.size || this.x
+            + this.speedX < this.size) {
             this.speedX = -this.speedX;
         }
-        if(this.y + this.speedY > canvas.height - this.size || this.y 
-            + this.speedY < this.size)
-        {
+        if (this.y + this.speedY > canvas.height - this.size || this.y
+            + this.speedY < this.size) {
             this.speedY = -this.speedY;
         }
-
     }
 
     draw() {
@@ -68,10 +71,9 @@ class Particle{
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
         ctx.fill();
         ctx.closePath();
-
     }
-
 }
+
 
 function drawLines(){
     for (let a = 0; a < particleArray.length; a++) {
@@ -101,10 +103,9 @@ function handle(){
 }
 
 const init = () => {
-
-    for(let i =0; i < numOfCircles; i++){
+    for (let i = 0; i < Number(numOfCircles.value); i++) {
         particleArray.push(
-            new Particle(x, y, size, speedX, speedY)
+            new Particle(true)
         );
     }
 }
