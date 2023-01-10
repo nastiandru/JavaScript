@@ -3,6 +3,11 @@ const startBtn = document.getElementById('start');
 const resetBtn = document.getElementById('reset');
 const ctx = canvas.getContext('2d');
 
+const numOfCircles = document.getElementById('numOfCircles');
+
+numOfCircles.setAttribute('min', 50)
+numOfCircles.setAttribute('max', 800)
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
