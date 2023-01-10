@@ -1,11 +1,7 @@
-class Note {
-    constructor(id, title, content, color = '#f7e1a8', isPinned = false, ) {
-      this.id = id;
-      this.title = title;
-      this.content = content;
-      this.color = color;
-      this.isPinned = isPinned;
-      this.date = new Date().toDateString();
-      this.tags = this.tags;
-    }
-  }
+const addBox = document.querySelector('.add-box')
+container = document.querySelector('.container')
+popupTitle = popupBox.querySelector('header p')
+titleEl = document.querySelector('input')
+descEl = document.querySelector('textarea')
+addBtn = document.querySelector('button ')
+
