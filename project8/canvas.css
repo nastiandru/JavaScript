@@ -8,3 +8,10 @@ body {
     background-color: black;
     overflow: hidden;
 }
+
+.controls {
+    position: fixed;
+    top: 10px;
+    left: 200px;
+    color: aliceblue;
+  }
